@@ -14,7 +14,7 @@ Praktikanten, die noch keine Erfahrung mit Docker und WordPress haben.
 
 ### Durchführung
 
-Jeder Teilnehmer führt drei Versuche jeweils durch für:
+Jeder Teilnehmer führt vier Versuche jeweils durch für:
 
 - Manuelles Setup
 - Automatisches Setup mittels Docker
