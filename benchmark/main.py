@@ -1,79 +1,110 @@
-import csv
+import numpy as np
 import pandas as pd
-import random
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from typing import List
-import os
+def after_startup(df):
+    df_stats = df[df['Trial'] != 1].groupby('Participant').agg({'Manual_Setup_Time': ['mean', 'min', 'max'],
+                                                                'Docker_Setup_Time': ['mean', 'min', 'max']}).reset_index()
+    df_stats.columns = [' '.join(col).strip() for col in df_stats.columns.values]
+    
+    fig, ax = plt.subplots(figsize=(14, 7))
+    positions = np.arange(len(df_stats['Participant']))
+    width = 0.35
 
-headers: List[str] = ['Participant', 'Trial', 'Manual_Setup_Time', 'Docker_Setup_Time']
+    rects1 = ax.bar(positions - width/2, df_stats['Manual_Setup_Time mean'], width, 
+                    label='Manuelle Einrichtungszeit nach Erstversuch', color='blue', capsize=5)
 
-data: List[List[int]] = []
+    rects2 = ax.bar(positions + width/2, df_stats['Docker_Setup_Time mean'], width, 
+                    label='Docker Einrichtungszeit nach Erstversuch', color='orange', capsize=5)
 
-# Artificial data right now: Generate data for 6 participants over 10 trials (demo is in minutes - rounded) - though, in real won't be 10 trials. - maybe 3 trials.
+    # Min/Max
+    ax.scatter(positions - width/2, df_stats['Manual_Setup_Time min'], color='white', edgecolor='black', zorder=5)
+    ax.scatter(positions - width/2, df_stats['Manual_Setup_Time max'], color='white', edgecolor='black', zorder=5)
+    ax.scatter(positions + width/2, df_stats['Docker_Setup_Time min'], color='white', edgecolor='black', zorder=5)
+    ax.scatter(positions + width/2, df_stats['Docker_Setup_Time max'], color='white', edgecolor='black', zorder=5)
 
-# Get the current directory
-current_dir = os.path.dirname(os.path.abspath(__file__))
-csv_file_path = os.path.join(current_dir, 'setup_times.csv')
+    def autolabel(rects, data):
+        for rect, datum in zip(rects, data):
+            height = rect.get_height()
+            ax.annotate('{}'.format(round(datum, 2)),
+                        xy=(rect.get_x() + rect.get_width() / 2, height),
+                        xytext=(5, 0),
+                        textcoords="offset points",
+                        ha='left', va='bottom', weight='bold', fontsize=14)
 
-for participant in range(1, 7):
-    for trial in range(1, 11): 
-        # For the first trial, Docker setup time might be longer due to initial setup.. Hopefully, reduced with my Documentation.
-        if trial == 1:
-            manual_time: int = random.randint(30, 80)
-            docker_time: int = random.randint(40, 100)
-        else:
-            # For the subsequent trials, Docker setup time is significantly reduced as the environment is already set up!
-            manual_time: int = random.randint(30, 60)
-            docker_time: int = random.randint(1, 5)
-        data.append([participant, trial, manual_time, docker_time])
+    autolabel(rects1, df_stats['Manual_Setup_Time mean'])
+    autolabel(rects2, df_stats['Docker_Setup_Time mean'])
 
-# Writes artificial data to CSV file
-with open(csv_file_path, 'w', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerow(headers)
-    writer.writerows(data)
+    ax.set_xlabel('Teilnehmer', fontsize=14, weight='bold')
+    ax.set_ylabel('Einrichtungszeit in Minuten', fontsize=14, weight='bold')
+    ax.set_title('Durchschnittliche Einrichtungszeit (Minuten) jeweils 3 Versuche', fontsize=24, weight='bold')
+    ax.set_xticks(positions)
+    ax.set_xticklabels(df_stats['Participant'])
+    ax.legend(frameon=True, fontsize=19)
 
-df: pd.DataFrame = pd.read_csv(csv_file_path)
-
-# Calculate average setup time for each trial
-average_times: pd.DataFrame = df.groupby('Trial').mean()[['Manual_Setup_Time', 'Docker_Setup_Time']]
-
-# Calculate cumulative setup time for each participant
-df['Cumulative_Manual_Time'] = df.groupby('Participant')['Manual_Setup_Time'].cumsum()
-df['Cumulative_Docker_Time'] = df.groupby('Participant')['Docker_Setup_Time'].cumsum()
-
-# Calculate total time saved using Docker
-total_time_saved: int = df['Cumulative_Manual_Time'].sum() - df['Cumulative_Docker_Time'].sum()
-
-print(f"Total time saved using Docker: {total_time_saved} minutes, or {round(total_time_saved / 60, 2)} hours in a 10 trial experiment.")
-
-sns.set_theme()
-plt.figure(figsize=(10, 6))
-plt.plot(average_times.index, average_times['Manual_Setup_Time'], marker='o', label='Manual Setup Time')
-plt.plot(average_times.index, average_times['Docker_Setup_Time'], marker='o', label='Docker Setup Time')
-
-plt.title('Average Setup Times for Manual and Docker Methods', fontsize=16)
-plt.xlabel('Trial', fontsize=14)
-plt.ylabel('Time (in minutes - rounded)', fontsize=14)
+    plt.tight_layout()
+    plt.show()
 
 
-plt.legend(fontsize=12)
-plt.xticks(fontsize=12)
-plt.yticks(fontsize=12)
+def startup(df):
+    first_trial_df = df[df['Trial'] == 1]
 
-plt.grid(True)
-plt.show()
+    positions = np.arange(len(first_trial_df['Participant'].unique()))
+    width = 0.35
+    
+    fig, ax = plt.subplots(figsize=(10, 6))
+    rects1 = ax.bar(positions - width/2, first_trial_df['Manual_Setup_Time'], width, label='Manuelle Einrichtungszeit', color='blue')
+    rects2 = ax.bar(positions + width/2, first_trial_df['Docker_Setup_Time'], width, label='Docker Einrichtungszeit', color='orange')
+
+    ax.set_ylabel('Einrichtungszeit in Minuten', fontsize=14, weight='bold')
+    ax.set_xlabel('Teilnehmer', fontsize=14, weight='bold')
+    ax.set_title('Vergleich der Ersten Einrichtungszeit nach Teilnehmer ', fontsize=18, weight='bold')
+    ax.set_xticks(positions)
+    ax.set_xticklabels(first_trial_df['Participant'].unique())
+    ax.legend(frameon=True, fontsize=16)
+
+    def autolabel(rects):
+        for rect in rects:
+            height = rect.get_height()
+            ax.annotate('{}'.format(height),
+                        xy=(rect.get_x() + rect.get_width() / 2, height),
+                        xytext=(0, 3),  
+                        textcoords="offset points",
+                        ha='center', va='bottom')
+
+    autolabel(rects1)
+    autolabel(rects2)
+
+    fig.tight_layout()
+    plt.show()
+
+    
+def saved_time(df):
+    """
+    Stündlicher Lohn eines Softwareentwicklers in Österreich berechnet mit der Differenz zwischen verbrauchter manueller und Docker Einrichtungszeit
+    Quelle: https://www.kununu.com/at/gehalt/softwareentwickler-in-15019
+    Calc: https://www.finanz.at/steuern/lohnrechner/?calc=14270
+    """
+
+    diff_min = df['Manual_Setup_Time'].sum() - df['Docker_Setup_Time'].sum()
+    diff_hours = diff_min / 60
+    average_sal_per_hour = 22.35
+    
+    total_cost_savings = diff_hours * average_sal_per_hour 
+    total_cost_savings 
+
+    return print(f"Das Gesamtersparnis durch die Verwendung von Docker beträgt in den insgesamt 16 Versuchen: {total_cost_savings.round(2)}€")
 
 
-"""
-TODO: 
-1. Write Rules for the experiment.
-2. Write Instructions for the experiment.
-3. Send Rules and Instructions to the participants.
-4. Conduct the experiment.
-5. Collect the data.
-6. Compare to variables like cost per hour of median developer in Austria.
-In between: Search for other trusted sources to compare the results to.
-"""
+if __name__ == '__main__':
+    data = {
+    "Participant": ['A', 'A', 'A', 'A', 'B', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'D', 'D', 'D', 'D'],
+    "Trial": [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
+    "Manual_Setup_Time": [43.21, 38.49, 37.51, 37.44, 40.32, 39.53, 38.19, 37.22, 95.12, 44, 52, 54, 100.32, 62.03, 59.02, 58.22],
+    "Docker_Setup_Time": [90.33, 2.15, 1.59, 1.49, 87.22, 1.59, 1.54, 1.42, 140.46, 3.12, 2.59, 2.32, 132.35, 2.31, 2.22, 2.21]
+    }
+    df = pd.DataFrame(data)
+    startup(df)
+    after_startup(df)
+    saved_time(df)
