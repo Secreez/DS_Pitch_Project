@@ -17,11 +17,11 @@ Stellen Sie sich eine Welt vor, in der Sie, Ihre Entwickler und Ihre Kunden nich
 
 **Folie 2: Problemstellung**
 
-Wir kennen alle die Herausforderungen: Die endlosen Stunden der Einarbeitung, die Frustration über ineffiziente, manuelle Prozesse, und die unnötigen Kosten, die daraus entstehen. Und wer kennt nicht den berüchtigten Satz: "Aber bei mir hat es doch funktioniert?" Testen? Fehlanzeige. Mit meinem Produkt sagen wir gemeinsam "Auf Wiedersehen" zu diesen alten Sorgen und blicken auf das Wesentliche: **Entwickeln, Testen, Liefern.**
+Wir kennen alle die Herausforderungen: Die endlosen Stunden der Einarbeitung, die Frustration über ineffiziente, manuelle Prozesse, und die unnötigen Kosten, die daraus entstehen. Und wer kennt nicht den berüchtigten Satz: "Aber bei mir hat es doch funktioniert?" Getestet? Fehlanzeige. Mit meinem Produkt sagen wir gemeinsam "Auf Wiedersehen" zu diesen alten Sorgen und blicken auf das Wesentliche: **Entwickeln, Testen, Liefern.**
 
 **Folie 3: Erste Statistik**
 
-Beim ersten Setup erscheint die manuelle Einrichtung als der alte vertraute Sieger – schnell, direkt, nichts Neues. Aber lassen Sie sich nicht vom Anfang täuschen. Diese Zahlen sind nur der Auftakt einer Transformation. In einer Welt, die sich rasant weiterentwickelt, ist es die kontinuierliche Effizienzsteigerung und Skalierbarkeit, die langfristig den Ton angeben.
+Ein Beispiel aus der Praxis: Beim ersten Setup erscheint die manuelle Einrichtung als der alte vertraute Sieger – schnell, direkt, nichts Neues. Aber lassen Sie sich nicht vom Anfang täuschen. Diese Zahlen sind nur der Auftakt einer Transformation. In einer Welt, die sich rasant weiterentwickelt, ist es doch die kontinuierliche Effizienzsteigerung und Skalierbarkeit, die langfristig den Ton angeben.
 
 **Folie 4: Docker gewinnt**
 
@@ -37,6 +37,8 @@ Denn am Ende geht es nicht nur darum, Fehler zu finden. Es geht um das Vertrauen
 
 **Folie 7: Transparenz**
 
-Und weil Transparenz für mich kein bloßes Buzzword ist, lade ich Sie ein, einen tieferen Blick zu wagen. Scannen Sie gerne diesen QR-Code, besuchen Sie meine GitHub-Repository und sehen Sie selbst, wie ich für diese Präsentation gearbeitet und mich vorbereitet habe.
+Transparenz bedeutet, Einsicht in den Prozess zu geben – nicht nur das Endprodukt. Der QR-Code führt Sie zu meiner GitHub-Repository, wo Sie alle Materialien finden, die ich heute verwendet habe.
+
+Diese Offenheit ist ein Vorgeschmack auf unsere Zusammenarbeit: ehrlich, transparent und fokussiert auf greifbare Ergebnisse.
 
 Vielen Dank.
