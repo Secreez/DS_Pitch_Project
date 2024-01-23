@@ -88,7 +88,9 @@ def saved_time(df):
     """
 
     diff_min = df['Manual_Setup_Time'].sum() - df['Docker_Setup_Time'].sum()
+    print(diff_min)
     diff_hours = diff_min / 60
+    print(diff_hours)
     average_sal_per_hour = 22.35
     
     total_cost_savings = diff_hours * average_sal_per_hour 

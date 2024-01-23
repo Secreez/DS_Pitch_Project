@@ -1,32 +1,42 @@
 ## Infos zum Pitch
 
-### Straffung des Pitches (muss unbedingt 2 Minuten sein)
-
-1. **Einführung (15 Sekunden):**
-    - Kurze Vorstellung und ein spannender Teaser, der Interesse weckt….
-2. **Problemstellung (15 Sekunden):**
-    - Kurze Erwähnung der Herausforderungen bei herkömmlichen WordPress-Setups: Zeitintensität und Komplexität!
-    - - SUCHE NACH ERFAHRUNGSBERICHTE, die aufzeigen was passiert ist weil sie kein Docker verwendet haben / nicht getestet haben… Schmeisse mehrere dieser berichte in eine Folie (baue sie als Referenz in GitHub ein) - Um sofort ein “UHH…” Bild zu suggerieren. Gleich auf die Schiene reingehen! Wichtig Punkt jedoch: sollten mit solchen Projekten zu tun haben. Um die Message klar und deutlich anzugeben, aber nichts “belangloses” reinwerfen.
-3. **Lösung mit Docker (30 Sekunden):**
-    - Kurze Einführung von Docker als effiziente Lösung.
-    - Hervorheben von Schlüsselvorteilen: Schnellere Einrichtung, weniger Fehler, leichtere Wartung.
-4. **Benchmark-Demonstration (30 Sekunden):**
-    - Visualisiere den Zeitvergleich: Manueller Aufbau vs. ein Docker Setup.
-    - Betone dabei signifikante Zeitersparnis und Effizienz!
-    - Line Diagramm. Setup 1x benötigt Zeit... ja, aber je öfter man es deployed so ein Wordpress System und das Stimmt. desto schneller wird Docker immer sein! Variablen: Setuptime, Counts, how_much_time_spared_in_long_run (nein, so nenn ich die variable nicht)
-5. **Vorteile des Testens (15 Sekunden):**
-    - Danach kurz, wie das Testen/Automatisierte die Zuverlässigkeit verbessert.
-6. **Abschluss und Call-to-Action (15 Sekunden):**
-    - Schlussfolgerung, warum Docker die Zukunft von WordPress-Hosting ist.
-    - Verweis auf diese (hi!) GitHub-Repo mit QR-Code für mehr Infos.
-    
-
-### UNBEDINGT EINHALTEN:
-
+## UNBEDINGT EINHALTEN:
 - **Klar und präzise:** Halte dich an die wichtigsten Punkte, um innerhalb der Zeitgrenze zu bleiben.
-- Zielpersonen: Die Zielperson sind potenzielle KundInnen für das Produkt, von denen du keine Technischen Kenntnisse erwarten kannst. **Emotion + Ergebnisse nach vorne!**
-- **Visualisierung:** Nutze das Diagramm, um deine Punkte schnell und effektiv zu vermitteln für das Quantitative und Bilder für den rest. Um Fokus auf mich [Sprechenden] zu setzen.
-- **Übung:** Übe deinen Pitch mehrmals, um sicherzustellen, dass ich innerhalb der Zeit bleib und die Aussagen flüssig und überzeugend sind. [Mind 3x am Tag nach/in Erstellung des Skripts.]
-- **In der LV:** Präsi hochladen auf dem Laptop vom Lab! - Also keine grosse möglichkeit ein eigenes Programm zu bauen. Auch unnötig, bei Google Slides belassen.
+- **Zielpersonen:** die Zielperson sind potenzielle KundInnen für das Produkt, von denen du keine technischen Kenntnisse erwarten kannst. **Emotion + Ergebnisse nach vorne!**
+- **Visualisierung:** Nutzen von Diagramm, um deine Punkte schnell und effektiv zu vermitteln für das Quantitative und Bilder für den Rest. Um Fokus auf mich [Sprechenden] zu setzen.
+- **Übung:** Übe den Pitch mehrmals, um sicherzustellen, dass ich innerhalb der Zeit bleibe und die Aussagen flüssig und überzeugend sind. [Mind 3x am Tag nach/in Erstellung des Skripts.]
+- **In der LV:** Präsi hochladen auf dem Laptop vom Lab! - Also keine große Möglichkeit ein eigenes Programm zu bauen. Auch unnötig.
 
 - ## Skript
+
+**Folie 1: Podium Icon**
+
+Guten Morgen zusammen,
+
+Stellen Sie sich eine Welt vor, in der Sie, Ihre Entwickler und Ihre Kunden nicht länger Kompromisse eingehen müssen. Eine Welt, in der Qualität und Effizienz keine leeren Versprechungen sind, sondern die Grundpfeiler Ihrer täglichen Arbeit. Mein Name ist Maximilian Elixhauser, und ich bin hier, um Ihnen genau diese Welt vorzustellen.
+
+**Folie 2: Problemstellung**
+
+Wir kennen alle die Herausforderungen: Die endlosen Stunden der Einarbeitung, die Frustration über ineffiziente, manuelle Prozesse, und die unnötigen Kosten, die daraus entstehen. Und wer kennt nicht den berüchtigten Satz: "Aber bei mir hat es doch funktioniert?" Testen? Fehlanzeige. Mit meinem Produkt sagen wir gemeinsam "Auf Wiedersehen" zu diesen alten Sorgen und blicken auf das Wesentliche: **Entwickeln, Testen, Liefern.**
+
+**Folie 3: Erste Statistik**
+
+Beim ersten Setup erscheint die manuelle Einrichtung als der alte vertraute Sieger – schnell, direkt, nichts Neues. Aber lassen Sie sich nicht vom Anfang täuschen. Diese Zahlen sind nur der Auftakt einer Transformation. In einer Welt, die sich rasant weiterentwickelt, ist es die kontinuierliche Effizienzsteigerung und Skalierbarkeit, die langfristig den Ton angeben.
+
+**Folie 4: Docker gewinnt**
+
+Und hier offenbart sich die wahre Stärke unserer gemeinsamen Lösung: Nach dem initialen Setup mit Docker – unterstützt durch meine umfassende Dokumentation und Betreuung – beginnt die Effizienz, sich exponentiell zu steigern. Für ein Unternehmen, haben wir nicht nur den Setup-Prozess standardisiert, sondern auch die Entwicklungszeit drastisch reduziert. Stellen Sie sich vor, was es bedeutet, wenn Ihre Entwickler statt Stunden nur Minuten benötigen, um eine neue, fehlerfreie Umgebung bereitzustellen.
+
+**Folie 5: Differenz und Einsparungen**
+
+Sehen Sie diese Zahlen? Das ist keine Magie, das sind reale Einsparungen. Nach nur 16 Versuchen in einem Partner Unternehmen haben wir nicht nur Zeit, sondern auch bares Geld gespart. Und das basierend auf echten Daten, nicht bloßen Schätzungen.
+
+**Folie 6: Entwickeln - Testen - Liefern**
+
+Denn am Ende geht es nicht nur darum, Fehler zu finden. Es geht um das Vertrauen in Ihre Produkte, in Ihr Team und in jeden Code, den Sie ausliefern. "Testing is not about bugs, it's about confidence."
+
+**Folie 7: Transparenz**
+
+Und weil Transparenz für mich kein bloßes Buzzword ist, lade ich Sie ein, einen tieferen Blick zu wagen. Scannen Sie gerne diesen QR-Code, besuchen Sie meine GitHub-Repository und sehen Sie selbst, wie ich für diese Präsentation gearbeitet und mich vorbereitet habe.
+
+Vielen Dank.
