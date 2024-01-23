@@ -7,7 +7,7 @@
 - **Übung:** Übe den Pitch mehrmals, um sicherzustellen, dass ich innerhalb der Zeit bleibe und die Aussagen flüssig und überzeugend sind. [Mind 3x am Tag nach/in Erstellung des Skripts.]
 - **In der LV:** Präsi hochladen auf dem Laptop vom Lab! - Also keine große Möglichkeit ein eigenes Programm zu bauen. Auch unnötig.
 
-- ## Skript
+## Skript
 
 **Folie 1: Podium Icon**
 
